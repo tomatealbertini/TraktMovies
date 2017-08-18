@@ -12,9 +12,12 @@
 		DB1BD0551F472F2400D60C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1BD0531F472F2400D60C54 /* Main.storyboard */; };
 		DB1BD0571F472F2400D60C54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB1BD0561F472F2400D60C54 /* Assets.xcassets */; };
 		DB1BD05A1F472F2400D60C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1BD0581F472F2400D60C54 /* LaunchScreen.storyboard */; };
+		F3EE6798D94AC90436847546 /* Pods_DafitiTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA0C01C8F9B07C537BF9458 /* Pods_DafitiTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8FD91580AC0F29660A900BB3 /* Pods-DafitiTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafitiTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-DafitiTest/Pods-DafitiTest.release.xcconfig"; sourceTree = "<group>"; };
+		BA46850BB33F48FB2FC208EB /* Pods-DafitiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafitiTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DafitiTest/Pods-DafitiTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DB1BD04C1F472F2400D60C54 /* DafitiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DafitiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1BD04F1F472F2400D60C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB1BD0511F472F2400D60C54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		DB1BD0561F472F2400D60C54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB1BD0591F472F2400D60C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB1BD05B1F472F2400D60C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFA0C01C8F9B07C537BF9458 /* Pods_DafitiTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DafitiTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3EE6798D94AC90436847546 /* Pods_DafitiTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		915779A43A68662104D869D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA46850BB33F48FB2FC208EB /* Pods-DafitiTest.debug.xcconfig */,
+				8FD91580AC0F29660A900BB3 /* Pods-DafitiTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C9981CBAD2D6D1A9D79ACE64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0C01C8F9B07C537BF9458 /* Pods_DafitiTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DB1BD0431F472F2400D60C54 = {
 			isa = PBXGroup;
 			children = (
 				DB1BD04E1F472F2400D60C54 /* DafitiTest */,
 				DB1BD04D1F472F2400D60C54 /* Products */,
+				915779A43A68662104D869D4 /* Pods */,
+				C9981CBAD2D6D1A9D79ACE64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB1BD05E1F472F2400D60C54 /* Build configuration list for PBXNativeTarget "DafitiTest" */;
 			buildPhases = (
+				3853D5B9A3D72BD70B95688D /* [CP] Check Pods Manifest.lock */,
 				DB1BD0481F472F2400D60C54 /* Sources */,
 				DB1BD0491F472F2400D60C54 /* Frameworks */,
 				DB1BD04A1F472F2400D60C54 /* Resources */,
+				C3A4B4A64D6074CE3EB4354B /* [CP] Embed Pods Frameworks */,
+				CF9ED735B9CE8B30CC3ABACE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3853D5B9A3D72BD70B95688D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C3A4B4A64D6074CE3EB4354B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DafitiTest/Pods-DafitiTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF9ED735B9CE8B30CC3ABACE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DafitiTest/Pods-DafitiTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DB1BD0481F472F2400D60C54 /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		DB1BD05F1F472F2400D60C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA46850BB33F48FB2FC208EB /* Pods-DafitiTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2GLLGY9ZGF;
@@ -272,6 +348,7 @@
 		};
 		DB1BD0601F472F2400D60C54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FD91580AC0F29660A900BB3 /* Pods-DafitiTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2GLLGY9ZGF;

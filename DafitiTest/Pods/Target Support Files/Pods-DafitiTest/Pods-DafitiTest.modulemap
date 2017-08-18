@@ -1,0 +1,6 @@
+framework module Pods_DafitiTest {
+  umbrella header "Pods-DafitiTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
