@@ -7,4 +7,6 @@ target 'DafitiTest' do
 
   # Pods for DafitiTest
 
+    pod 'Alamofire', '~> 4.4'
+
 end

@@ -12,6 +12,11 @@
 		DB1BD0551F472F2400D60C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1BD0531F472F2400D60C54 /* Main.storyboard */; };
 		DB1BD0571F472F2400D60C54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB1BD0561F472F2400D60C54 /* Assets.xcassets */; };
 		DB1BD05A1F472F2400D60C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1BD0581F472F2400D60C54 /* LaunchScreen.storyboard */; };
+		DB1BD0621F47534000D60C54 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD0611F47534000D60C54 /* Control.swift */; };
+		DB1BD0641F475AAF00D60C54 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD0631F475AAF00D60C54 /* Config.swift */; };
+		DB1BD0681F47762800D60C54 /* Ids.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD0671F47762800D60C54 /* Ids.swift */; };
+		DB1BD06A1F47773C00D60C54 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD0691F47773C00D60C54 /* Movie.swift */; };
+		DB1BD06C1F4781A700D60C54 /* MoviePlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD06B1F4781A700D60C54 /* MoviePlus.swift */; };
 		F3EE6798D94AC90436847546 /* Pods_DafitiTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA0C01C8F9B07C537BF9458 /* Pods_DafitiTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +30,11 @@
 		DB1BD0561F472F2400D60C54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB1BD0591F472F2400D60C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB1BD05B1F472F2400D60C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB1BD0611F47534000D60C54 /* Control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
+		DB1BD0631F475AAF00D60C54 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		DB1BD0671F47762800D60C54 /* Ids.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ids.swift; sourceTree = "<group>"; };
+		DB1BD0691F47773C00D60C54 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		DB1BD06B1F4781A700D60C54 /* MoviePlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePlus.swift; sourceTree = "<group>"; };
 		FFA0C01C8F9B07C537BF9458 /* Pods_DafitiTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DafitiTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -78,14 +88,27 @@
 		DB1BD04E1F472F2400D60C54 /* DafitiTest */ = {
 			isa = PBXGroup;
 			children = (
+				DB1BD0661F4775A500D60C54 /* Model */,
 				DB1BD04F1F472F2400D60C54 /* AppDelegate.swift */,
 				DB1BD0511F472F2400D60C54 /* ViewController.swift */,
 				DB1BD0531F472F2400D60C54 /* Main.storyboard */,
 				DB1BD0561F472F2400D60C54 /* Assets.xcassets */,
 				DB1BD0581F472F2400D60C54 /* LaunchScreen.storyboard */,
 				DB1BD05B1F472F2400D60C54 /* Info.plist */,
+				DB1BD0611F47534000D60C54 /* Control.swift */,
+				DB1BD0631F475AAF00D60C54 /* Config.swift */,
 			);
 			path = DafitiTest;
+			sourceTree = "<group>";
+		};
+		DB1BD0661F4775A500D60C54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB1BD0671F47762800D60C54 /* Ids.swift */,
+				DB1BD0691F47773C00D60C54 /* Movie.swift */,
+				DB1BD06B1F4781A700D60C54 /* MoviePlus.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +237,11 @@
 			files = (
 				DB1BD0521F472F2400D60C54 /* ViewController.swift in Sources */,
 				DB1BD0501F472F2400D60C54 /* AppDelegate.swift in Sources */,
+				DB1BD06A1F47773C00D60C54 /* Movie.swift in Sources */,
+				DB1BD0681F47762800D60C54 /* Ids.swift in Sources */,
+				DB1BD0621F47534000D60C54 /* Control.swift in Sources */,
+				DB1BD0641F475AAF00D60C54 /* Config.swift in Sources */,
+				DB1BD06C1F4781A700D60C54 /* MoviePlus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +407,7 @@
 				DB1BD0601F472F2400D60C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
