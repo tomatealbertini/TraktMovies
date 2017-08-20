@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var labelName:UILabel!
     @IBOutlet weak var labelReleaseDate:UILabel!
     @IBOutlet weak var imgImage:UIImageView!
+    @IBOutlet weak var vContainer:UIView!
+    
     var movie:MoviePlus?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.vContainer.layer.cornerRadius = 6
+        self.vContainer.clipsToBounds = true
     }
+    
+    
     
     func loadData() {
         
@@ -36,7 +43,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
                 
                 if erroString == nil {
                     
-                    print(imageMovie?.posters?.first?.urlImage())
+                    let url = URL(string: (imageMovie?.posters?.first?.urlImage())!)
+                    self.imgImage.kf.setImage(with: url)
+                    
+                    print()
                 }
                 
             })

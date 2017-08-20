@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,9 +49,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7fj-Vp-1C8">
-                                <rect key="frame" x="16" y="20" width="343" height="598"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7fj-Vp-1C8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iMe-rw-9oQ">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -66,10 +65,10 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="7fj-Vp-1C8" secondAttribute="trailing" id="CSt-mS-zIc"/>
-                            <constraint firstItem="7fj-Vp-1C8" firstAttribute="leading" secondItem="rKL-A8-jj7" secondAttribute="leadingMargin" id="qbh-XS-VaX"/>
+                            <constraint firstAttribute="trailing" secondItem="7fj-Vp-1C8" secondAttribute="trailing" id="CSt-mS-zIc"/>
+                            <constraint firstItem="7fj-Vp-1C8" firstAttribute="leading" secondItem="rKL-A8-jj7" secondAttribute="leading" id="qbh-XS-VaX"/>
                             <constraint firstItem="M5r-ZG-sg1" firstAttribute="top" secondItem="7fj-Vp-1C8" secondAttribute="bottom" id="sX2-2S-0Ji"/>
                             <constraint firstItem="7fj-Vp-1C8" firstAttribute="top" secondItem="dpy-Lm-tfr" secondAttribute="bottom" id="sf4-M1-LNu"/>
                         </constraints>
