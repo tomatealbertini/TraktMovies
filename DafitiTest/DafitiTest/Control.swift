@@ -59,7 +59,7 @@ class Control: NSObject {
     
     static func getImages(imbdID:Int,completion: @escaping ((ImagesMovie?, String?) -> ())) {
 
-        let url:URLConvertible = URL(string: String(format: "https://api.themoviedb.org/3/movie/%d/images?api_key=%@", imbdID, Config.Api.Keys.themoviedbKey.rawValue))!
+        let url:URLConvertible = URL(string: String(format: Config.Api.HostDBImages.rawValue, imbdID, Config.Api.Keys.themoviedbKey.rawValue))!
 
         customRequest(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { (result, error) in
             

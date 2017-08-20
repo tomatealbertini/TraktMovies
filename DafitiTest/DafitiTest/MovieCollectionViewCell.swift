@@ -25,8 +25,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
         self.vContainer.clipsToBounds = true
     }
     
-    
-    
     func loadData() {
         
         if let title = self.movie?.movie?.title {
@@ -46,9 +44,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
                     let url = URL(string: (imageMovie?.posters?.first?.urlImage())!)
                     self.imgImage.kf.setImage(with: url)
                     
-                    print()
                 }
-                
             })
         }
     }
