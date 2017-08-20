@@ -22,6 +22,5 @@ class MoviePlus: NSObject {
         if let movie = dic["movie"] as? Dictionary<String,Any> {
             self.movie = Movie(dic: movie)
         }
-        
     }
 }

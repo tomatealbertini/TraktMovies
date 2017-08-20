@@ -13,28 +13,31 @@ enum Config
 {
     enum Api:String {
         
+        //Keys
         enum Keys:String {
             
-            case clientID     = "399afe60362c0dfe0708ccc532d9f5bc1ed2e5918a9dab56f48ea8a837bde16f"
-            case clientSecret = "016789cf284b2f615cb6f7ee93368b6ad80e5822ee624efa8078bbbc64c51b08"
+            case clientID      = "399afe60362c0dfe0708ccc532d9f5bc1ed2e5918a9dab56f48ea8a837bde16f"
+            case clientSecret  = "016789cf284b2f615cb6f7ee93368b6ad80e5822ee624efa8078bbbc64c51b08"
+            case themoviedbKey = "ae61ad33d07bb0b2e53c15800d6b356a"
         }
         
-        case Host = "https://api.trakt.tv/"
+        //URL
         // case Host = "https://api-staging.trakt.tv/"
-        case redirectURI = "urn:ietf:wg:oauth:2.0:oob"
+        case HostTrakt    = "https://api.trakt.tv/"
+        case HostDBMovies = "https://api.themoviedb.org/3/movie"
+        case HostDBImage  = "https://image.tmdb.org/t/p/w1000"
         
-        // *****************************************
-        // Usuários
-        // *****************************************
-        enum method:String
-        {
-            case Movie = "movies/trending"
-            case authenticate = "oauth/authorize?response_type=code&client_id=%@&redirect_uri=%@"
+        case redirectURI  = "urn:ietf:wg:oauth:2.0:oob"
+        
 
+        // Métodos
+        enum method:String {
+            
+            case Movie = "movies/trending"
             
             var URL: String
             {
-                return "\(Config.Api.Host.rawValue)\(self.rawValue)"
+                return "\(Config.Api.HostTrakt.rawValue)\(self.rawValue)"
             }
         }
     }

@@ -46,14 +46,36 @@ class Control: NSObject {
                     }
                     
                     completion(trendingMovies,nil)
+                
                 } else {
                 
                     completion(nil,"Ocorreu um erro ao buscar os dados")
-            }
+                }
             } else {
                 completion(nil,error.debugDescription)
             }
+        }
+    }
+    
+    static func getImages(imbdID:Int,completion: @escaping ((ImagesMovie?, String?) -> ())) {
 
+        let url:URLConvertible = URL(string: String(format: "https://api.themoviedb.org/3/movie/%d/images?api_key=%@", imbdID, Config.Api.Keys.themoviedbKey.rawValue))!
+
+        customRequest(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil) { (result, error) in
+            
+            if error == nil {
+                
+                if let data = result as? Dictionary<String, Any> {
+                    
+                    completion(ImagesMovie(dic: data), nil)
+            
+                } else {
+                    
+                    completion(nil,"Ocorreu um erro ao buscar os dados")
+                }
+            } else {
+                completion(nil,error.debugDescription)
+            }
         }
     }
 }
