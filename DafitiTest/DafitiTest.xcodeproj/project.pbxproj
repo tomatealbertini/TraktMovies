@@ -24,6 +24,7 @@
 		DB1BD0791F49BA1600D60C54 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1BD0771F49BA1600D60C54 /* MovieCollectionViewCell.xib */; };
 		DB1BD07B1F49D4BA00D60C54 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD07A1F49D4BA00D60C54 /* Image.swift */; };
 		DB1BD07D1F49DA8D00D60C54 /* ImagesMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD07C1F49DA8D00D60C54 /* ImagesMovie.swift */; };
+		DB1BD0821F4A31B400D60C54 /* MoviesShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD0811F4A31B400D60C54 /* MoviesShared.swift */; };
 		F3EE6798D94AC90436847546 /* Pods_DafitiTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA0C01C8F9B07C537BF9458 /* Pods_DafitiTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		DB1BD0771F49BA1600D60C54 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB1BD07A1F49D4BA00D60C54 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		DB1BD07C1F49DA8D00D60C54 /* ImagesMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesMovie.swift; sourceTree = "<group>"; };
+		DB1BD0811F4A31B400D60C54 /* MoviesShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesShared.swift; sourceTree = "<group>"; };
 		FFA0C01C8F9B07C537BF9458 /* Pods_DafitiTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DafitiTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 		DB1BD04E1F472F2400D60C54 /* DafitiTest */ = {
 			isa = PBXGroup;
 			children = (
+				DB1BD0801F4A319600D60C54 /* DTO */,
 				DB1BD0701F49B4F800D60C54 /* Layout */,
 				DB1BD0661F4775A500D60C54 /* Model */,
 				DB1BD04F1F472F2400D60C54 /* AppDelegate.swift */,
@@ -138,6 +141,14 @@
 				DB1BD0771F49BA1600D60C54 /* MovieCollectionViewCell.xib */,
 			);
 			name = Layout;
+			sourceTree = "<group>";
+		};
+		DB1BD0801F4A319600D60C54 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				DB1BD0811F4A31B400D60C54 /* MoviesShared.swift */,
+			);
+			name = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +284,7 @@
 				DB1BD06A1F47773C00D60C54 /* Movie.swift in Sources */,
 				DB1BD06F1F48880100D60C54 /* Extensions.swift in Sources */,
 				DB1BD07D1F49DA8D00D60C54 /* ImagesMovie.swift in Sources */,
+				DB1BD0821F4A31B400D60C54 /* MoviesShared.swift in Sources */,
 				DB1BD0681F47762800D60C54 /* Ids.swift in Sources */,
 				DB1BD0621F47534000D60C54 /* Control.swift in Sources */,
 				DB1BD0781F49BA1600D60C54 /* MovieCollectionViewCell.swift in Sources */,
@@ -403,6 +415,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2GLLGY9ZGF;
 				INFOPLIST_FILE = DafitiTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.DafitiTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -417,6 +430,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2GLLGY9ZGF;
 				INFOPLIST_FILE = DafitiTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.DafitiTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
