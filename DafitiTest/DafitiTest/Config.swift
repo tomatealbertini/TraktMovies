@@ -34,6 +34,7 @@ enum Config
         enum method:String {
             
             case Movie = "movies/trending"
+            case MovieDetails = "movies/%d?extended=full"
             
             var URL: String
             {

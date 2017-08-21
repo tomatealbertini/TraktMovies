@@ -24,6 +24,34 @@ class Control: NSObject {
         }
     }
 
+    static func getMovieDetails(id:Int, completion: @escaping ((MovieDetails?, String?) -> ())) {
+        
+        let url:URLConvertible = URL(string: String(format: Config.Api.method.MovieDetails.URL, id))!
+        var headers:HTTPHeaders = HTTPHeaders()
+        headers["Content-Type"] = "application/json"
+        headers["trakt-api-version"] = "2"
+        headers["trakt-api-key"] = Config.Api.Keys.clientID.rawValue
+        
+        customRequest(url: url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers) {
+            (data, error) in
+            
+            if error == nil {
+                
+                if let data = data as? Dictionary<String, Any> {
+                    
+                    
+                    completion(MovieDetails(dic:data),nil)
+                    
+                } else {
+                    
+                    completion(nil,"Ocorreu um erro ao buscar os dados")
+                }
+            } else {
+                completion(nil,error.debugDescription)
+            }
+        }
+    }
+    
     static func getTrendindMovies(completion: @escaping (([MoviePlus]?, String?) -> ())) {
         
         let url:URLConvertible = URL(string: Config.Api.method.Movie.URL)!

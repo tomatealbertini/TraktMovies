@@ -70,6 +70,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.loadData()
     }
     
+    //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MovieCollectionViewCell
@@ -86,6 +87,24 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         return self.moviesDataSource.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        Control.getMovieDetails(id: (self.moviesDataSource[indexPath.row].movie?.ids?.trakt)!) { (movieDetails, erroString) in
+            
+            let st = UIStoryboard.init(name: "Main", bundle: nil)
+            let controller = st.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
+            controller.movieDetails = movieDetails
+            
+            
+            let navController = UINavigationController.init(rootViewController: controller)
+            navController.setNavigationBarHidden(true, animated: false)
+            
+            self.present(navController, animated: true, completion:nil)
+            
+        }
+    }
+    
     
     //MARK: SearchBar
     func moviesFiltered(searchText:String) {
