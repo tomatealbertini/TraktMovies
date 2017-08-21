@@ -95,7 +95,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let st = UIStoryboard.init(name: "Main", bundle: nil)
             let controller = st.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
             controller.movieDetails = movieDetails
-            
+            controller.imageMovie = (collectionView.cellForItem(at: indexPath) as! MovieCollectionViewCell).imageMovie
             
             let navController = UINavigationController.init(rootViewController: controller)
             navController.setNavigationBarHidden(true, animated: false)
@@ -118,8 +118,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         print(searchText)
         self.moviesFiltered(searchText: searchText)
-        
-        
     }
 }
 

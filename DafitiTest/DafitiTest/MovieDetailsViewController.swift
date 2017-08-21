@@ -17,16 +17,39 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var lOverview:UILabel!
     @IBOutlet weak var lRating:UILabel!
     @IBOutlet weak var lGenres:UILabel!
+    @IBOutlet weak var scroll:UIScrollView!
     //galeria
     
     
     var movieDetails:MovieDetails?
+    var imageMovie:ImagesMovie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setUp()
+        self.checkIfImageMoviesLoaded()
     }
+     
+    func showImages() {
+        
+        var offset = 0
+    
+        for backdrop in (self.imageMovie?.backdrops)! {
+
+            let url = URL(string: (backdrop.urlImage()))
+            
+            let imageView = UIImageView(frame: CGRect(x: offset, y: 0, width: 225, height: 128))
+            imageView.kf.setImage(with: url)
+            
+            self.scroll.addSubview(imageView)
+            offset += 230
+        }
+        
+        self.scroll.contentSize = CGSize(width: (self.imageMovie?.backdrops?.count)! * 230, height: 128)
+    }
+    
+    func tapImage()
     
     func setUp() {
         
@@ -39,8 +62,26 @@ class MovieDetailsViewController: UIViewController {
         self.lGenres.text = self.movieDetails?.genres?.joined(separator: ", ")
     }
     
+    func checkIfImageMoviesLoaded() {
+        
+        if self.imageMovie == nil {
+            
+            if let tmdb = self.movieDetails?.ids?.tmdb {
+                
+                Control.getImages(imbdID: tmdb, completion: { (imageMovie, erroString) in
+                    
+                    if erroString == nil {
+                        
+                        self.imageMovie = imageMovie!
+                    }
+                })
+            }
+        } else {
+            self.showImages()
+        }
+    }
+    
     @IBAction func close(sender:UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-
 }

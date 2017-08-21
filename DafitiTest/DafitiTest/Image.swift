@@ -18,17 +18,17 @@ class Image: NSObject {
 //    "vote_count" = 1;
 //    width = 882;
     
-    var aspect_ratio:String?
+    var aspect_ratio:Double?
     var file_path:String?
     var height:Int?
     var iso_639_1:String?
-    var vote_average:String?
+    var vote_average:Double?
     var vote_count:Int?
     var width:Int?
     
     init(dic:Dictionary<String,Any>) {
         
-        if let aspect_ratio = dic["aspect_ratio"] as? String {
+        if let aspect_ratio = dic["aspect_ratio"] as? Double {
             self.aspect_ratio = aspect_ratio
         }
         
@@ -36,7 +36,7 @@ class Image: NSObject {
             self.file_path = file_path
         }
         
-        if let height = dic["aspect_ratio"] as? Int {
+        if let height = dic["height"] as? Int {
             self.height = height
         }
         
@@ -44,7 +44,7 @@ class Image: NSObject {
             self.iso_639_1 = iso_639_1
         }
         
-        if let vote_average = dic["vote_average"] as? String {
+        if let vote_average = dic["vote_average"] as? Double {
             self.vote_average = vote_average
         }
         

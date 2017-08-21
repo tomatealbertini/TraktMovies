@@ -17,6 +17,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var vContainer:UIView!
     
     var movie:MoviePlus?
+    var imageMovie:ImagesMovie?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +41,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
             Control.getImages(imbdID: tmdb, completion: { (imageMovie, erroString) in
                 
                 if erroString == nil {
+                    
+                    self.imageMovie = imageMovie!
                     
                     let url = URL(string: (imageMovie?.posters?.first?.urlImage())!)
                     self.imgImage.kf.setImage(with: url)
