@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UISearchBarDelegate {
+class HomeViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource,UISearchBarDelegate {
 
     let reuseIdentifier = "MovieCollectionViewCell"
     
@@ -44,6 +44,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func loadData() {
         
+        self.showActivityIndicator(view: self.view, withOpaqueOverlay: true)
+        
         Control.getTrendindMovies { (result, erro) in
             
             if erro == nil {
@@ -57,6 +59,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 }
                 self.collectionView.reloadData()
             }
+            self.hideActivityIndicator(view: self.view)
             self.stopRefresher()
         }
     }

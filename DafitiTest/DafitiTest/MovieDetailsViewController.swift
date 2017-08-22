@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController {
+class MovieDetailsViewController: BaseViewController {
 
     @IBOutlet weak var lTitle:UILabel!
     @IBOutlet weak var lReleaseDate:UILabel!
@@ -18,8 +18,8 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var lRating:UILabel!
     @IBOutlet weak var lGenres:UILabel!
     @IBOutlet weak var scroll:UIScrollView!
-    //galeria
-    
+    @IBOutlet weak var btClose: UIButton!
+    @IBOutlet weak var btFavorite: UIButton!
     
     var movieDetails:MovieDetails?
     var imageMovie:ImagesMovie?
@@ -33,23 +33,37 @@ class MovieDetailsViewController: UIViewController {
      
     func showImages() {
         
-        var offset = 0
+        var offsetX = 0
     
         for backdrop in (self.imageMovie?.backdrops)! {
 
             let url = URL(string: (backdrop.urlImage()))
+            let tap = UITapGestureRecognizer(target: self, action: #selector(tapImage(tapGestureRecognizer:)))
             
-            let imageView = UIImageView(frame: CGRect(x: offset, y: 0, width: 225, height: 128))
+            let imageView = UIImageView(frame: CGRect(x: offsetX, y: 0, width: 225, height: 128))
             imageView.kf.setImage(with: url)
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(tap)
             
             self.scroll.addSubview(imageView)
-            offset += 230
+            
+            offsetX += 230
         }
         
         self.scroll.contentSize = CGSize(width: (self.imageMovie?.backdrops?.count)! * 230, height: 128)
     }
     
-    func tapImage()
+    func tapImage(tapGestureRecognizer: UITapGestureRecognizer) {
+        
+        if let imageView = tapGestureRecognizer.view as? UIImageView {
+       
+            let st = UIStoryboard.init(name: "Main", bundle: nil)
+            let controller = st.instantiateViewController(withIdentifier: "ImageZoomViewController") as! ImageZoomViewController
+            controller.imageFromDetails = imageView.image
+            
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
     
     func setUp() {
         
@@ -60,6 +74,9 @@ class MovieDetailsViewController: UIViewController {
         self.lOverview.text = self.movieDetails?.overview
         self.lRating.text =  String(format:"%.1f",self.movieDetails!.rating!)
         self.lGenres.text = self.movieDetails?.genres?.joined(separator: ", ")
+        
+        self.btClose.changeButtonImageColor(to: UIColor.white)
+        self.btFavorite.changeButtonImageColor(to: UIColor.white)
     }
     
     func checkIfImageMoviesLoaded() {

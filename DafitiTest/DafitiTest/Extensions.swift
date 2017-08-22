@@ -10,12 +10,10 @@ import UIKit
 
 extension HomeViewController : UICollectionViewDelegateFlowLayout {
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let totalSpace = sectionInsets.left + sectionInsets.right + (minimumInteritemSpacing * CGFloat(itensPerRow + 1))
-        let size = Int((collectionView.bounds.width - (totalSpace + 0)) / CGFloat(itensPerRow))
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(itensPerRow))
         let teste = Int(Double(size) * 1.73)
         return CGSize(width: size, height: teste)
     }
@@ -27,4 +25,17 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+}
+
+
+extension UIButton {
+    
+    func changeButtonImageColor(to:UIColor) {
+        
+        let img = self.image(for: .normal)
+        let image = img!.withRenderingMode(.alwaysTemplate)
+        self.setImage(image, for: .normal)
+        self.tintColor = UIColor.white
+    }
+    
 }
