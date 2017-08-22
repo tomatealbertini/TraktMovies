@@ -9,30 +9,12 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
     var indicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-
-     let activityIndicatorViewTag = 9874
-     let activityIndicatorOverlayViewTag = 4789
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.bringSubview(toFront: view)
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    let activityIndicatorViewTag = 9874
+    let activityIndicatorOverlayViewTag = 4789
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func showActivityIndicator(view: UIView, withOpaqueOverlay: Bool) {
         
         // this will be the alignment view for the activity indicator
@@ -80,6 +62,4 @@ class BaseViewController: UIViewController {
         view.viewWithTag(activityIndicatorViewTag)?.removeFromSuperview()
         view.viewWithTag(activityIndicatorOverlayViewTag)?.removeFromSuperview()
     }
-    
-    
 }

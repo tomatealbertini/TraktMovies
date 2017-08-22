@@ -76,7 +76,13 @@ class MovieDetailsViewController: BaseViewController {
         self.lGenres.text = self.movieDetails?.genres?.joined(separator: ", ")
         
         self.btClose.changeButtonImageColor(to: UIColor.white)
-        self.btFavorite.changeButtonImageColor(to: UIColor.white)
+        
+        if FavoritesManager.shared.favoriteAlreadyExists(ids: movieDetails!.ids!) {
+            
+            btFavorite.changeButtonImageColor(to: .red)
+        } else {
+            btFavorite.changeButtonImageColor(to: .white)
+        }
     }
     
     func checkIfImageMoviesLoaded() {
@@ -95,6 +101,16 @@ class MovieDetailsViewController: BaseViewController {
             }
         } else {
             self.showImages()
+        }
+    }
+    
+    @IBAction func favorite(sender:UIButton) {
+        
+        if FavoritesManager.shared.addFavorite(ids: movieDetails!.ids!) {
+        
+            btFavorite.changeButtonImageColor(to: .red)
+        } else {
+            btFavorite.changeButtonImageColor(to: .white)
         }
     }
     

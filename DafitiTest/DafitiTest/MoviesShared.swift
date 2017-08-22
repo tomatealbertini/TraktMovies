@@ -37,10 +37,10 @@ final class MoviesShared {
         
         var seen = Set<Int>()
         var unique = [MoviePlus]()
-        for message in self.movies {
-            if !seen.contains((message.movie?.ids?.tmdb)!) {
-                unique.append(message)
-                seen.insert((message.movie?.ids?.tmdb!)!)
+        for m in self.movies {
+            if !seen.contains((m.movie?.ids?.tmdb)!) {
+                unique.append(m)
+                seen.insert((m.movie?.ids?.tmdb!)!)
             }
         }
         
@@ -61,5 +61,12 @@ final class MoviesShared {
         }
   
         return filteredMovies
+    }
+    
+    func favoritesMovies() -> [MoviePlus] {
+        
+        
+        return self.movies.filter({ FavoritesManager.shared.favoriteAlreadyExists(ids: ($0.movie?.ids)!) == true })
+        
     }
 }

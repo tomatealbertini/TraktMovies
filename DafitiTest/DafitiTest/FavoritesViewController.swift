@@ -10,34 +10,45 @@ import UIKit
 
 class FavoritesViewController: HomeViewController {
 
+    @IBOutlet weak var lMessage: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-
-    override func loadData() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        print("passei por aqui")
+        self.loadData()
         
-//        self.showActivityIndicator(view: self.view, withOpaqueOverlay: true)
-//        
-//        Control.getTrendindMovies { (result, erro) in
-//            
-//            if erro == nil {
-//                
-//                MoviesShared.shared.addMovies(mov: result!)
-//                
-//                if self.searchBar != nil {
-//                    self.moviesDataSource = MoviesShared.shared.filteredMovies
-//                } else {
-//                    self.moviesDataSource = MoviesShared.shared.movies
-//                }
-//                self.collectionView.reloadData()
-//            }
-//            self.hideActivityIndicator(view: self.view)
-//            self.stopRefresher()
-//        }
+        
     }
-
+    
+    override func loadData() {
+  
+        self.showActivityIndicator(view: self.view, withOpaqueOverlay: true)
+        
+        Control.getTrendindMovies { (result, erro) in
+            
+            if erro == nil {
+                
+                MoviesShared.shared.addMovies(mov: result!)
+                
+                self.moviesDataSource = MoviesShared.shared.favoritesMovies()
+                
+                self.collectionView.reloadData()
+                
+                if self.moviesDataSource.count == 0 {
+                    
+                    self.lMessage.isHidden = false
+                    
+                } else {
+                    
+                    self.lMessage.isHidden = true
+                }
+            }
+            self.hideActivityIndicator(view: self.view)
+            self.stopRefresher()
+        }
+    }
 }

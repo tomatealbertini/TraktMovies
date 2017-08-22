@@ -35,7 +35,7 @@ extension UIButton {
         let img = self.image(for: .normal)
         let image = img!.withRenderingMode(.alwaysTemplate)
         self.setImage(image, for: .normal)
-        self.tintColor = UIColor.white
+        self.tintColor = to
     }
     
 }
