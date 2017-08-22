@@ -11,17 +11,12 @@ import UIKit
 class FavoritesViewController: HomeViewController {
 
     @IBOutlet weak var lMessage: UILabel!
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.loadData()
-        
-        
     }
     
     override func loadData() {
