@@ -68,7 +68,7 @@ class HomeViewController: BaseViewController, UICollectionViewDelegate, UICollec
         self.refreshControl.endRefreshing()
     }
     
-    func refresh(sender:AnyObject) {
+    @objc func refresh(sender:AnyObject) {
         
         self.loadData()
     }

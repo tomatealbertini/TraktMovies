@@ -53,7 +53,7 @@ class MovieDetailsViewController: BaseViewController {
         self.scroll.contentSize = CGSize(width: (self.imageMovie?.backdrops?.count)! * 230, height: 128)
     }
     
-    func tapImage(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func tapImage(tapGestureRecognizer: UITapGestureRecognizer) {
         
         if let imageView = tapGestureRecognizer.view as? UIImageView {
        

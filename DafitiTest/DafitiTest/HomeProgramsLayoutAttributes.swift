@@ -10,7 +10,7 @@ import UIKit
 
 class HomeProgramsLayoutAttributes: UICollectionViewLayoutAttributes
 {
-    var lineSpacing:CGFloat = 0.0
+    @objc var lineSpacing:CGFloat = 0.0
 
     func copyWithZone(zone: NSZone) -> AnyObject
     {
