@@ -16,34 +16,43 @@ class FavoritesViewController: HomeViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.loadData()
+        self.getMovies()
+        super.loadData()
     }
     
-    override func loadData() {
-  
-        self.showActivityIndicator(view: self.view, withOpaqueOverlay: true)
+    override func getMovies() {
         
-        Control.getTrendindMovies { (result, erro) in
-            
-            if erro == nil {
-                
-                MoviesShared.shared.addMovies(mov: result!)
-                
-                self.moviesDataSource = MoviesShared.shared.favoritesMovies()
-                
-                self.collectionView.reloadData()
-                
-                if self.moviesDataSource.count == 0 {
-                    
-                    self.lMessage.isHidden = false
-                    
-                } else {
-                    
-                    self.lMessage.isHidden = true
-                }
-            }
-            self.hideActivityIndicator(view: self.view)
-            self.stopRefresher()
+        self.showActivityIndicator(view: self.view, withOpaqueOverlay: true)
+        self.viewModel.getTrendingMoview(origem: .Favoritos) {
+            self.lMessage.isHidden = self.viewModel.moviesDataSource.count != 0
         }
     }
+    
+//    override func loadData() {
+//
+//        self.showActivityIndicator(view: self.view, withOpaqueOverlay: true)
+//
+//        Control.getTrendindMovies { (result, erro) in
+//
+//            if erro == nil {
+//
+//                MoviesShared.shared.addMovies(mov: result!)
+//
+//                self.moviesDataSource = MoviesShared.shared.favoritesMovies()
+//
+//                self.collectionView.reloadData()
+//
+//                if self.moviesDataSource.count == 0 {
+//
+//                    self.lMessage.isHidden = false
+//
+//                } else {
+//
+//                    self.lMessage.isHidden = true
+//                }
+//            }
+//            self.hideActivityIndicator(view: self.view)
+//            self.stopRefresher()
+//        }
+//    }
 }

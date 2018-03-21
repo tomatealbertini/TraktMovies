@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF7304D4206186DB005A4542 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7304D3206186DB005A4542 /* MoviesViewModel.swift */; };
 		DB1BD0501F472F2400D60C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD04F1F472F2400D60C54 /* AppDelegate.swift */; };
 		DB1BD0521F472F2400D60C54 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BD0511F472F2400D60C54 /* HomeViewController.swift */; };
 		DB1BD0551F472F2400D60C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1BD0531F472F2400D60C54 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		8FD91580AC0F29660A900BB3 /* Pods-DafitiTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafitiTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-DafitiTest/Pods-DafitiTest.release.xcconfig"; sourceTree = "<group>"; };
 		BA46850BB33F48FB2FC208EB /* Pods-DafitiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafitiTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DafitiTest/Pods-DafitiTest.debug.xcconfig"; sourceTree = "<group>"; };
+		BF7304D3206186DB005A4542 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		DB1BD04C1F472F2400D60C54 /* DafitiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DafitiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1BD04F1F472F2400D60C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB1BD0511F472F2400D60C54 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BF7304D220618695005A4542 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF7304D3206186DB005A4542 /* MoviesViewModel.swift */,
+			);
+			name = ViewModel;
+			path = DafitiTest;
+			sourceTree = "<group>";
+		};
 		C9981CBAD2D6D1A9D79ACE64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				DB1BD04E1F472F2400D60C54 /* DafitiTest */,
+				BF7304D220618695005A4542 /* ViewModel */,
 				DB758EEB1F4B127A0004005A /* Controllers */,
 				DB1BD04D1F472F2400D60C54 /* Products */,
 				915779A43A68662104D869D4 /* Pods */,
@@ -316,6 +328,7 @@
 				DB1BD0741F49B50500D60C54 /* HomeProgramsLayoutAttributes.swift in Sources */,
 				DB1BD07B1F49D4BA00D60C54 /* Image.swift in Sources */,
 				DB1BD0521F472F2400D60C54 /* HomeViewController.swift in Sources */,
+				BF7304D4206186DB005A4542 /* MoviesViewModel.swift in Sources */,
 				DB1BD0501F472F2400D60C54 /* AppDelegate.swift in Sources */,
 				DBD289541F4C378A006E6FEB /* BaseViewController.swift in Sources */,
 				DB1BD0731F49B50500D60C54 /* HomeProgramsLayout.swift in Sources */,
@@ -473,7 +486,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.TraktMovies4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -489,7 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.TraktMovies4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

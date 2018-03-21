@@ -43,7 +43,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
                 if erroString == nil {
                     
                     self.imageMovie = imageMovie!
-                    
                     let url = URL(string: (imageMovie?.posters?.first?.urlImage())!)
                     self.imgImage.kf.setImage(with: url)
                     
@@ -51,5 +50,4 @@ class MovieCollectionViewCell: UICollectionViewCell {
             })
         }
     }
-
 }

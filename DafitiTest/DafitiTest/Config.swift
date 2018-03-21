@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 enum Config
 {
     enum Api:String {
@@ -22,13 +21,11 @@ enum Config
         }
         
         //URL
-        // case Host = "https://api-staging.trakt.tv/"
         case HostTrakt    = "https://api.trakt.tv/"
         case HostDBMovies = "https://api.themoviedb.org/3/movie"
-        case HostDBImage  = "https://image.tmdb.org/t/p/w1000"
+        case HostDBImage  = "https://image.tmdb.org/t/p/w500"
         case HostDBImages = "https://api.themoviedb.org/3/movie/%d/images?api_key=%@"
         case redirectURI  = "urn:ietf:wg:oauth:2.0:oob"
-        
 
         // Métodos
         enum method:String {

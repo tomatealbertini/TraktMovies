@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum origemDados {
+    case Home
+    case Busca
+    case Favoritos
+}
+
 class HomeViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource,UISearchBarDelegate {
 
     let reuseIdentifier = "MovieCollectionViewCell"
@@ -15,20 +21,48 @@ class HomeViewController: BaseViewController, UICollectionViewDelegate, UICollec
     let itensPerRow:CGFloat = 2
     let sectionInsets = UIEdgeInsets(top: 0.0, left: 5.0, bottom: 10.0, right: 5.0)
     let minimumInteritemSpacing:CGFloat = 5
-    var moviesDataSource:[MoviePlus] = [MoviePlus]()
+    
     var refreshControl:UIRefreshControl!
+    var origem:origemDados = .Home
+    
+    @objc var viewModel:MoviesViewModel = MoviesViewModel()
     
     @IBOutlet weak var searchBar:UISearchBar?
     @IBOutlet weak var collectionView:UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
-        self.loadData()
-        
+     
         if self.searchBar != nil {
             self.searchBar?.becomeFirstResponder()
+            self.origem = .Busca
         }
+        
+        self.getMovies()
+        self.setupCollectionView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        self.removeObserver(self, forKeyPath: #keyPath(viewModel.moviesDataSource), context: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.addObserver(self, forKeyPath: #keyPath(viewModel.moviesDataSource), options: [.new, .old, .initial], context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == #keyPath(viewModel.moviesDataSource) {
+            
+            self.loadData()
+        }
+    }
+    
+    func setupCollectionView() {
         
         let layout = HomeProgramsLayout()
         layout.minimumLineSpacing = 0
@@ -41,27 +75,18 @@ class HomeViewController: BaseViewController, UICollectionViewDelegate, UICollec
         self.refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         self.collectionView!.addSubview(refreshControl)
     }
+
+    func getMovies() {
+        
+        self.showActivityIndicator(view: self.view, withOpaqueOverlay: true)
+        self.viewModel.getTrendingMoview(origem: self.origem,onSuccessComplete: {})
+    }
     
     func loadData() {
         
-        self.showActivityIndicator(view: self.view, withOpaqueOverlay: true)
-        
-        Control.getTrendindMovies { (result, erro) in
-            
-            if erro == nil {
-                
-                MoviesShared.shared.addMovies(mov: result!)
-                
-                if self.searchBar != nil {
-                    self.moviesDataSource = MoviesShared.shared.filteredMovies
-                } else {
-                    self.moviesDataSource = MoviesShared.shared.movies
-                }
-                self.collectionView.reloadData()
-            }
-            self.hideActivityIndicator(view: self.view)
-            self.stopRefresher()
-        }
+        self.collectionView.reloadData()
+        self.hideActivityIndicator(view: self.view)
+        self.stopRefresher()
     }
     
     func stopRefresher() {
@@ -69,15 +94,14 @@ class HomeViewController: BaseViewController, UICollectionViewDelegate, UICollec
     }
     
     @objc func refresh(sender:AnyObject) {
-        
-        self.loadData()
+        self.getMovies()
     }
     
     //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MovieCollectionViewCell
-        cell.movie = self.moviesDataSource[indexPath.row]
+        cell.movie = self.viewModel.moviesDataSource[indexPath.row]
         cell.loadData()
         return cell
     }
@@ -88,12 +112,12 @@ class HomeViewController: BaseViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.moviesDataSource.count
+        return self.viewModel.moviesDataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        Control.getMovieDetails(id: (self.moviesDataSource[indexPath.row].movie?.ids?.trakt)!) { (movieDetails, erroString) in
+        Control.getMovieDetails(id: (self.viewModel.moviesDataSource[indexPath.row].movie?.ids?.trakt)!) { (movieDetails, erroString) in
             
             let st = UIStoryboard.init(name: "Main", bundle: nil)
             let controller = st.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
@@ -104,22 +128,17 @@ class HomeViewController: BaseViewController, UICollectionViewDelegate, UICollec
             navController.setNavigationBarHidden(true, animated: false)
             
             self.present(navController, animated: true, completion:nil)
-            
         }
     }
-    
     
     //MARK: SearchBar
     func moviesFiltered(searchText:String) {
         
-        self.moviesDataSource = MoviesShared.shared.moviesByName(name: searchText)
-        self.collectionView.reloadData()
+        self.viewModel.moviesByName(name: searchText)
     }
     
-    func searchBar(_ searchBar: UISearchBar,
-                   textDidChange searchText: String){
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         
-        print(searchText)
         self.moviesFiltered(searchText: searchText)
     }
 }
